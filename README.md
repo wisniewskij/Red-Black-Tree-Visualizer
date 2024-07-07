@@ -1,6 +1,8 @@
 # Red-Black-Tree-Visualizer
 Interactive Red-Black Tree Visualizer using pygame.
 
+Project uses pygame text-input module from: https://github.com/Nearoo/pygame-text-input 
+
 ### Instructions
 
 1. **Adding a Node**: 
