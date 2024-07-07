@@ -1,6 +1,8 @@
 # Red-Black-Tree-Visualizer
 Interactive Red-Black Tree Visualizer using pygame.
 
+### Instructions
+
 1. **Adding a Node**: 
    - Type a number (positive/negative integer) and press Enter.
 2. **Deleting a Node**:
