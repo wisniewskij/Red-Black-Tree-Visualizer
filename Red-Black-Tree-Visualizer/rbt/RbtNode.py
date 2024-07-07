@@ -1,5 +1,4 @@
 import pygame
-import pygame.gfxdraw
 
 from utility.gui import drawTextWithOutline
 from utility.enums import RbtColor, Color
@@ -78,29 +77,29 @@ class RbtNode:
 
         # Outline
         for i in range(1):
-            pygame.gfxdraw.aacircle(
-                self.visualizer.screen, x_transformed, y_transformed,
-                int(self.radius * self.radius_mult * zoom), Color.OUTLINE_BLACK.value
+            pygame.draw.circle(
+                self.visualizer.screen, Color.OUTLINE_BLACK.value, (x_transformed, y_transformed),
+                int(self.radius * self.radius_mult * zoom),
             )
 
 
         # Filling
-        pygame.gfxdraw.filled_circle(
+        pygame.draw.circle(
             self.visualizer.screen,
-            x_transformed,
-            y_transformed,
+            Color.BLACK.value if self.color == RbtColor.BLACK.value else Color.RED.value,
+            (x_transformed, y_transformed),
             int(self.radius * self.radius_mult * zoom),
-            Color.BLACK.value if self.color == RbtColor.BLACK.value else Color.RED.value
+            0
         )
 
         # Additional circle
         if self.additional_circle_radius_mult > 0:
-            pygame.gfxdraw.filled_circle(
+            pygame.draw.circle(
                 self.visualizer.screen,
-                x_transformed,
-                y_transformed,
+                self.additional_circle_color,
+                (x_transformed, y_transformed),
                 int(self.radius * self.additional_circle_radius_mult * self.radius_mult * zoom),
-                self.additional_circle_color
+                0
             )
 
 

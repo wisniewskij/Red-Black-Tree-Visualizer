@@ -434,7 +434,7 @@ class RedBlackVisualizedTree:
                 0 if y.right is self.nil else y.right.subtree_size) + y.quantity
 
         if node_is_root:
-            node.dest_position = (self.base_position[0], -100)
+            node.dest_position = (self.base_position[0], int((-100 - self.visualizer.y_offset) * 10 * self.visualizer.zoom))
         else:
             node.dest_position = node.parent.dest_position
 
