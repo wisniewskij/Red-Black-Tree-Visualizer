@@ -1,0 +1,3 @@
+-Nie trzymam tablicy $x_i$ tylko jej ostatni element, który zawsze trzymam pod zmienną x.
+-Używam innej struktury do przechowywania "tableau" - zamiast dużej statycznie zaalokowanej tablicy zawierającej w nieużywanych miejscach $\inf$, używam slice'a slice'ów.
+-(To jest powiedzaine w książce ale warto przypmnieć) wszystkie liczby w "tableau" są dodatnie.
