@@ -18,14 +18,14 @@ class Visualizer:
 
     def __init__(self):
         # Config
-        self.tps_max = 3600.0
+        self.tps_max = 60.0
 
         # Initialization
         pygame.init()
         pygame.key.set_repeat(200, 250)
         pygame.display.set_caption("Red-black tree visualization")
         pygame.display.set_icon(pygame.image.load('assets/icon.png'))
-        self.screen = pygame.display.set_mode((1280, 720))
+        self.screen = pygame.display.set_mode((1920, 1080))
         self.tps_clock = pygame.time.Clock()
         self.tps_delta = 0.0
 
