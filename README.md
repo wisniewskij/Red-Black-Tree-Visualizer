@@ -1,5 +1,7 @@
 # Red-Black-Tree-Visualizer
-## https://wisniewskij.github.io/Red-Black-Tree-Visualizer/
+
+## Web version: 
+## https://wisniewskij.github.io/Red-Black-Tree-Visualizer/ (give it a minute to load)
 
 Interactive Red-Black Tree Visualizer using pygame and pygbag.
 
