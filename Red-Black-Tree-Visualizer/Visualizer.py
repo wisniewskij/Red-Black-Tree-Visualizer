@@ -11,7 +11,7 @@ from rbt.RedBlackVisualizedTree import RedBlackVisualizedTree
 from utility.enums import Color, Operation
 from utility.pygame_text_input_master.pygame_textinput import pygame_textinput, TextInputManager
 
-from utility.gui import Button
+from utility.gui import Button, drawTextWithOutline
 
 
 class Visualizer:
@@ -47,11 +47,11 @@ class Visualizer:
                                                                                                   1:].isdigit())
                                      ),
             antialias=True,
-            font_object=pygame.font.SysFont('Helvetica', 43)
+            font_object=pygame.font.SysFont('Helvetica', 90)
         )
 
-        self.add_value_button = Button(self, 0, self.screen.get_height() - 45, 100, 45,
-                                       'Add value: ', 'Arial', 32, Color.RED.value, Color.WHITE.value)
+        self.add_value_button = Button(self, 0, self.screen.get_height() - 90, 200, 90,
+                                       'Add value: ', 'Arial', 40, Color.RED.value, Color.WHITE.value)
 
     # Main loop
     async def run(self):
@@ -169,11 +169,13 @@ class Visualizer:
         for node in nodes:
             node.draw()
         self.add_value_button.draw()
-        self.screen.blit(self.text_input.surface, (100, self.screen.get_height() - 44))
+        self.screen.blit(self.text_input.surface, (200, self.screen.get_height() - 90))
 
         # tmp
         if not self.animation_controller.idle():
-            pygame.draw.circle(self.screen, Color.RED.value, (self.screen.get_width(), self.screen.get_height()), 50)
+            # pygame.draw.circle(self.screen, Color.RED.value, (self.screen.get_width(), self.screen.get_height()), 50)
+            drawTextWithOutline(self, 'Processing...', 'Helvetica', 80,
+                                Color.RED.value, self.screen.get_width()//2, self.screen.get_height() - 90)
         else:
             for new_node in newly_added_nodes:
                 new_node.recently_added = False
