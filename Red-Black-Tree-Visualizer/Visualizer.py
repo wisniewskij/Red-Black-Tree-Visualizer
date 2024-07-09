@@ -169,13 +169,13 @@ class Visualizer:
         for node in nodes:
             node.draw()
         self.add_value_button.draw()
-        self.screen.blit(self.text_input.surface, (200, self.screen.get_height() - 90))
+        self.screen.blit(self.text_input.surface, (200, self.screen.get_height() - 96))
 
         # tmp
         if not self.animation_controller.idle():
             # pygame.draw.circle(self.screen, Color.RED.value, (self.screen.get_width(), self.screen.get_height()), 50)
             drawTextWithOutline(self, 'Processing...', 'Helvetica', 80,
-                                Color.RED.value, self.screen.get_width()//2, self.screen.get_height() - 90)
+                                Color.RED.value, self.screen.get_width()//2, self.screen.get_height() - 96)
         else:
             for new_node in newly_added_nodes:
                 new_node.recently_added = False
