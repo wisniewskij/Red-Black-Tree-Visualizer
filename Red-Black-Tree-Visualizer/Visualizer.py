@@ -39,7 +39,6 @@ class Visualizer:
         self.tree = RedBlackVisualizedTree(self)
         self.edge_manager = EdgeManager(self)
 
-
         self.text_input = pygame_textinput.TextInputVisualizer(
             manager=TextInputManager(validator=lambda input_arg: len(input_arg) <= 5 and
                                                                  (input_arg == '' or (input_arg[0] == '-' or input_arg[
@@ -67,17 +66,8 @@ class Visualizer:
                         (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE)):
                     sys.exit(0)
                 elif event.type == pygame.KEYDOWN:
-                    if (event.key == pygame.K_RETURN
-                            and self.animation_controller.idle()
-                            and self.text_input.value != ''
-                            and self.text_input.value != '-'
-                    ):
-                        self.tree.insert(int(self.text_input.value))
-                        self.text_input.value = ''
-                        if len(self.tree) == 1:
-                            self.x_offset = 0
-                            self.y_offset = 0
-                            self.zoom = 1.0
+                    if event.key == pygame.K_RETURN:
+                        self.check_for_value_add()
 
                     if event.key == pygame.K_r:
                         self.restart()
@@ -113,6 +103,9 @@ class Visualizer:
                             if Vector2(node.get_transformed_position()).distance_to(Vector2(mouse_pos)) < node.radius:
                                 self.tree.delete_all(node)
 
+                        if self.add_value_button.rect.collidepoint(mouse_pos):
+                            self.check_for_value_add()
+
             # Update text_input
             self.text_input.update(events)
 
@@ -128,7 +121,6 @@ class Visualizer:
             pygame.display.update()
 
             await asyncio.sleep(0)
-
 
     def tick(self):
         self.tree.update()
@@ -163,7 +155,7 @@ class Visualizer:
             self.y_offset -= min(max(int(10 * 1 / self.zoom), 10), 100) / (self.tps_max / 60)
 
     def draw(self):
-        if self.animation_controller.idle(): #debug
+        if self.animation_controller.idle():  #debug
             self.tps_max = 60.0
 
         nodes = list(reversed(self.tree.get_nodes_bfs()))
@@ -172,9 +164,7 @@ class Visualizer:
         old_nodes = [node for node in nodes if not node.recently_added]
         nodes = nodes_being_deleted + newly_added_nodes + old_nodes
 
-
         self.edge_manager.draw()
-
 
         for node in nodes:
             node.draw()
@@ -194,3 +184,16 @@ class Visualizer:
         self.animation_controller = AnimationController(self)
         self.tree = RedBlackVisualizedTree(self)
         self.edge_manager = EdgeManager(self)
+
+    def check_for_value_add(self):
+        if (
+                self.animation_controller.idle()
+                and self.text_input.value != ''
+                and self.text_input.value != '-'
+        ):
+            self.tree.insert(int(self.text_input.value))
+            self.text_input.value = ''
+            if len(self.tree) == 1:
+                self.x_offset = 0
+                self.y_offset = 0
+                self.zoom = 1.0
