@@ -1,11 +1,7 @@
 # Red-Black-Tree-Visualizer
-
-## Web version: 
-## https://wisniewskij.github.io/Red-Black-Tree-Visualizer/ (give it a minute to load)
+## Web version: https://wisniewskij.github.io/Red-Black-Tree-Visualizer/ (give it a minute to load)
 
 Interactive Red-Black Tree Visualizer using pygame and pygbag.
-
-Project uses pygame text-input module from: https://github.com/Nearoo/pygame-text-input 
 
 ### Instructions
 
@@ -19,3 +15,9 @@ Project uses pygame text-input module from: https://github.com/Nearoo/pygame-tex
    - Use the arrow keys and **M**, **N** keys.
 5. **Centering the View**:
    - Press **Space**.
+
+
+### Project uses:
+- pygame: https://www.pygame.org/
+- pygame text-input module from: https://github.com/Nearoo/pygame-text-input
+- pygbag: https://pypi.org/project/pygbag/
