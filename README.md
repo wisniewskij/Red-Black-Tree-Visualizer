@@ -16,6 +16,8 @@ Interactive Red-Black Tree Visualizer using pygame and pygbag.
 5. **Centering the View**:
    - Press **Space**.
   
+### Example visualization
+After typing in 7, 13, 14, 10, 4, 2, 17 program shows:
 <p align="center">
   <img src="example.png" alt="example image" width="600"/>
 </p>
