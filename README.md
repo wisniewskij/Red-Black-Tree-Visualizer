@@ -16,7 +16,7 @@ Interactive Red-Black Tree Visualizer using pygame and pygbag.
 5. **Centering the View**:
    - Press **Space**.
   
-![example image](example.png)
+![example image](example.png){ width=200px }
 
 ### Project uses
 - pygame: https://www.pygame.org/
