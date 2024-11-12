@@ -19,7 +19,7 @@ Interactive Red-Black Tree Visualizer using pygame and pygbag.
 ### Example visualization
 After typing in 7, 13, 14, 10, 4, 2, 17 program shows:
 <p align="center">
-  <img src="example.png" alt="example image" width="600"/>
+  <img src="example.png" alt="example image" width="400"/>
 </p>
 
 ### Project uses
